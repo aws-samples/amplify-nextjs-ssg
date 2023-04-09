@@ -1,13 +1,16 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import {Post} from "@/pages/[slug]";
 import React from "react";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+interface tHomeProps {
+    posts: number[]
+}
+
+export default function Home(props: tHomeProps) {
   return (
     <>
       <Head>
@@ -17,30 +20,45 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+          <div>
+              <h3>List of Hacker News Post IDs</h3>
+              {props.posts.length > 0 && props.posts.map((postId: number) => (
+                  <div key={postId}>
+                      <Link href={`/${postId}`}>
+                          <span>{postId}</span>
+                      </Link>
+                  </div>
+              ))}
+          </div>
         <div className={styles.description}>
           <p>
             Get started by editing&nbsp;
             <code className={styles.code}>src/pages/index.tsx</code>
           </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
+
+
+
+          <Link href={'/about'}>
+              Get started
+              {/*<a>About</a>*/}
+          </Link>
         </div>
       </main>
     </>
   )
+}
+
+export const getStaticProps = async (context: any) => {
+    try {
+        const res = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty');
+        const postIds: number[] = await res.json();
+        return {
+            props: {
+                posts: postIds
+            }
+        };
+    }
+    catch (e) {
+        console.log(e);
+    }
 }
