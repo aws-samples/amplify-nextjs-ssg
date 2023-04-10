@@ -1,0 +1,10 @@
+[
+  {
+    "key": "user:Stack",
+    "value": "{project-env}"
+  },
+  {
+    "key": "user:Application",
+    "value": "amplifynextjsssg"
+  }
+]
