@@ -7,7 +7,7 @@ export default function SSR({ formattedDate }) {
                 This page is server-side rendered. It was rendered on {formattedDate}.
             </p>
             <p>
-                <a href="/">View a static page.</a>
+                <a href="/">View this SSR static page.</a>
             </p>
         </>
     );
