@@ -1,23 +1,19 @@
 {
-  "name": "amplify-nextjs-ssg",
+  "name": "my-next-app-on-amplify",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@aws-amplify/cdk-exported-backend": "^0.0.6",
-    "@types/node": "18.15.11",
-    "@types/react": "18.0.33",
-    "@types/react-dom": "18.0.11",
-    "eslint": "8.38.0",
-    "eslint-config-next": "13.3.0",
-    "next": "13.3.0",
+    "autoprefixer": "10.4.14",
+    "next": "13.4.3",
+    "postcss": "8.4.23",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "5.0.4"
+    "tailwindcss": "3.3.2"
   }
 }
