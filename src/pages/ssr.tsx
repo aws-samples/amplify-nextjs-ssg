@@ -9,7 +9,7 @@ export default function SSR({ formattedDate }: { formattedDate: string }) {
             </p>
             <div className={"pt-6"}>
                 <Link href="/" className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
-                      aria-current="page">View this SSR static page.</Link>
+                      aria-current="page">View the SSG pages.</Link>
             </div>
 
         </div>
