@@ -57,7 +57,6 @@ export const getStaticProps = async (context: any) => {
 
     const res = await fetch(`https://hacker-news.firebaseio.com/v0/item/${slug}.json?print=pretty`);
     const individualPageDetail = await res.json();
-    console.log(individualPageDetail, "slug data")
     return {
         props: {
             post: individualPageDetail
